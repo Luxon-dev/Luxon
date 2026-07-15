@@ -1,0 +1,103 @@
+"""<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuXon - Tu Hub de Tiendas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --ease: cubic-bezier(0.16, 1, 0.3, 1); }
+  body{ background-color: #07080C; color: #E9EAF0; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+  .font-display{ font-family: 'Outfit', sans-serif; }
+  .mesh-bg{ position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 15% 20%, rgba(108,92,231,0.2), transparent 40%), radial-gradient(circle at 85% 15%, rgba(76,111,255,0.15), transparent 45%), #07080C; }
+  .glass{ background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+  .store-card{ transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease); }
+  .store-card:hover{ transform: translateY(-8px); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5); }
+  .video-overlay{ background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%); }
+</style>
+</head>
+<body>
+<div class="mesh-bg"></div>
+
+<header class="p-6 text-center">
+  <h1 class="font-display font-bold text-3xl tracking-tight">LuX<span class="text-blue-500">on</span></h1>
+  <p class="text-white/50 text-sm mt-2">Bienvenido a tu hub digital</p>
+</header>
+
+<main class="max-w-5xl mx-auto px-5 pb-20">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- 1. CAFETERÍA -->
+    <a href="https://tutiendadecafe.com" target="_blank" class="store-card relative overflow-hidden rounded-3xl glass min-h-[320px] flex flex-col justify-end p-6 group">
+       <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+         <source src="video_cafe.mp4" type="video/mp4">
+       </video>
+       <div class="absolute inset-0 video-overlay z-10"></div>
+       <div class="relative z-20"><h3 class="text-xl font-bold">Cafetería</h3><p class="text-white/60 text-sm">Granos y tueste propio.</p></div>
+    </a>
+
+    <!-- 2. HOMBRES -->
+    <a href="https://tutiendadehombre.com" target="_blank" class="store-card relative overflow-hidden rounded-3xl glass min-h-[320px] flex flex-col justify-end p-6 group">
+       <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+         <source src="video_hombres.mp4" type="video/mp4">
+       </video>
+       <div class="absolute inset-0 video-overlay z-10"></div>
+       <div class="relative z-20"><h3 class="text-xl font-bold">Hombres</h3><p class="text-white/60 text-sm">Estilo y calidad.</p></div>
+    </a>
+
+    <!-- 3. MUJERES -->
+    <a href="https://tutiendademujer.com" target="_blank" class="store-card relative overflow-hidden rounded-3xl glass min-h-[320px] flex flex-col justify-end p-6 group">
+       <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+         <source src="video_mujeres.mp4" type="video/mp4">
+       </video>
+       <div class="absolute inset-0 video-overlay z-10"></div>
+       <div class="relative z-20"><h3 class="text-xl font-bold">Mujeres</h3><p class="text-white/60 text-sm">Tendencias únicas.</p></div>
+    </a>
+
+    <!-- 4. NIÑOS -->
+    <a href="https://tutiendadeninos.com" target="_blank" class="store-card relative overflow-hidden rounded-3xl glass min-h-[320px] flex flex-col justify-end p-6 group">
+       <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+         <source src="video_ninos.mp4" type="video/mp4">
+       </video>
+       <div class="absolute inset-0 video-overlay z-10"></div>
+       <div class="relative z-20"><h3 class="text-xl font-bold">Niños</h3><p class="text-white/60 text-sm">Diversión y moda.</p></div>
+    </a>
+
+    <!-- 5. JOYERÍA -->
+    <a href="https://fursiejewl-lle5y6ti.manus.space/" target="_blank" class="store-card relative overflow-hidden rounded-3xl glass min-h-[320px] flex flex-col justify-end p-6 group">
+       <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+         <source src="video_joyeria.mp4" type="video/mp4">
+       </video>
+       <div class="absolute inset-0 video-overlay z-10"></div>
+       <div class="relative z-20"><h3 class="text-xl font-bold">Joyería</h3><p class="text-white/60 text-sm">Brillo y elegancia.</p></div>
+    </a>
+
+    <!-- 6. EGRESADOS -->
+    <a href="https://qualiconf-xzmwn5at.manus.space/" target="_blank" class="store-card relative overflow-hidden rounded-3xl glass min-h-[320px] flex flex-col justify-end p-6 group">
+       <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+         <source src="video_egresados.mp4" type="video/mp4">
+       </video>
+       <div class="absolute inset-0 video-overlay z-10"></div>
+       <div class="relative z-20"><h3 class="text-xl font-bold">Egresados</h3><p class="text-white/60 text-sm">Tu promo, tu momento.</p></div>
+    </a>
+
+    <!-- 7. TECNO -->
+    <a href="https://devsetup-p2mer2wo.manus.space/" target="_blank" class="store-card relative overflow-hidden rounded-3xl glass min-h-[320px] flex flex-col justify-end p-6 group">
+       <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+         <source src="video_tecno.mp4" type="video/mp4">
+       </video>
+       <div class="absolute inset-0 video-overlay z-10"></div>
+       <div class="relative z-20"><h3 class="text-xl font-bold">Tecno</h3><p class="text-white/60 text-sm">Gadgets de vanguardia.</p></div>
+    </a>
+
+  </div>
+</main>
+
+<footer class="border-t border-white/5 py-8 text-center text-xs text-white/30">
+  <p>© 2026 LuXon. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
+"""
