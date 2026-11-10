@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuXon | Catálogo Exclusivo</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FAF8F5',
+                            100: '#F5F0EB',
+                            200: '#EAE0D5',
+                            300: '#DDD0C1',
+                            400: '#C6B299',
+                            500: '#AD957B',
+                        },
+                        gold: {
+                            100: '#F9F3E5',
+                            300: '#E6CF9B',
+                            400: '#D4AF37',
+                            500: '#AA820A',
+                            600: '#856404',
+                        },
+                        charcoal: '#222222'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAF8F5;
+            color: #222222;
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 25s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Soft Glow Effects */
+        .gold-glow {
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #DDD0C1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #AD957B;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-300 selection:text-charcoal flex flex-col min-h-screen">
+
+    <!-- 1. ANNOUNCEMENT MARQUEE BAR -->
+    <div class="bg-charcoal text-cream-100 py-2.5 overflow-hidden border-b border-gold-400/30 text-xs sm:text-sm uppercase tracking-widest font-light">
+        <div class="animate-marquee whitespace-nowrap flex items-center">
+            <span class="mx-6 flex items-center gap-2">
+                <i class="fa-solid fa-gem text-gold-400"></i> Calidad Premium Garantizada
+            </span>
+            <span class="text-gold-400">•</span>
+            <span class="mx-6 flex items-center gap-2">
+                <i class="fa-solid fa-truck-fast text-gold-400"></i> Envíos a todo el país
+            </span>
+            <span class="text-gold-400">•</span>
+            <span class="mx-6 flex items-center gap-2">
+                <i class="fa-brands fa-whatsapp text-gold-400"></i> Atención Personalizada por WhatsApp
+            </span>
+            <span class="text-gold-400">•</span>
+            <span class="mx-6 flex items-center gap-2">
+                <i class="fa-solid fa-sparkles text-gold-400"></i> Diseños Exclusivos LuXon
+            </span>
+            <span class="text-gold-400">•</span>
+            <!-- Repetido para loop continuo sin saltos -->
+            <span class="mx-6 flex items-center gap-2">
+                <i class="fa-solid fa-gem text-gold-400"></i> Calidad Premium Garantizada
+            </span>
+            <span class="text-gold-400">•</span>
+            <span class="mx-6 flex items-center gap-2">
+                <i class="fa-solid fa-truck-fast text-gold-400"></i> Envíos a todo el país
+            </span>
+            <span class="text-gold-400">•</span>
+            <span class="mx-6 flex items-center gap-2">
+                <i class="fa-brands fa-whatsapp text-gold-400"></i> Atención Personalizada por WhatsApp
+            </span>
+            <span class="text-gold-400">•</span>
+            <span class="mx-6 flex items-center gap-2">
+                <i class="fa-solid fa-sparkles text-gold-400"></i> Diseños Exclusivos LuXon
+            </span>
+            <span class="text-gold-400">•</span>
+        </div>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <header class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-cream-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-charcoal via-charcoal to-gold-600 flex items-center justify-center text-gold-300 font-serif font-bold text-2xl shadow-md border border-gold-400/40 group-hover:border-gold-400 group-hover:scale-105 transition-all duration-300">
+                    <span class="z-10 font-serif tracking-tight drop-shadow-sm">L</span>
+                    <div class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-gold-400 rounded-full flex items-center justify-center text-[8px] text-charcoal font-black">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1.5">
+                        <span class="font-serif text-2xl sm:text-3xl font-bold tracking-widest text-charcoal group-hover:text-gold-600 transition-colors">LuXon</span>
+                        <i class="fa-solid fa-gem text-gold-500 text-xs opacity-70"></i>
+                    </div>
+                    <span class="text-[8.5px] uppercase tracking-[0.3em] text-gold-600 font-semibold -mt-1 block">Luxury Collection</span>
+                </div>
+            </a>
+
+            <!-- Quick Info / Contact Nav -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5491126131910" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-charcoal hover:text-gold-600 transition-colors bg-cream-100 hover:bg-cream-200 px-4 py-2.5 rounded-full border border-cream-300">
+                    <i class="fa-brands fa-whatsapp text-green-600 text-base"></i>
+                    <span>11 2613-1910</span>
+                </a>
+                
+                <!-- Cart Header Trigger Button -->
+                <button id="open-cart-btn" class="relative bg-charcoal hover:bg-gold-500 text-cream-50 hover:text-charcoal px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-sm text-gold-400 group-hover:text-charcoal"></i>
+                    <span>Carrito</span>
+                    <span id="cart-badge" class="bg-gold-400 text-charcoal font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center -mr-1">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SLIDER CAROUSEL -->
+    <section class="relative bg-cream-100 overflow-hidden">
+        <div id="hero-carousel" class="relative w-full h-[500px] sm:h-[550px] lg:h-[600px]">
+            <!-- Slide 1 -->
+            <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="LuXon Colección Elegante" onerror="this.src='https://placehold.co/1600x600/EAE0D5/222222?text=LuXon+Coleccion'">
+                <div class="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-transparent flex items-center">
+                    <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full text-cream-50">
+                        <span class="inline-block px-3.5 py-1 bg-gold-400/90 text-charcoal text-xs uppercase font-bold tracking-widest rounded-full mb-4">Nueva Colección</span>
+                        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight max-w-xl">Elegancia & Sofisticación en Cada Detalle</h1>
+                        <p class="text-cream-200 text-sm sm:text-base max-w-md mb-8 font-light leading-relaxed">Descubrí productos cuidadosamente seleccionados para elevar tu estilo de vida diario.</p>
+                        <a href="#catalogo" class="inline-flex items-center gap-3 bg-cream-50 text-charcoal hover:bg-gold-400 hover:text-charcoal px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-lg group">
+                            <span>Explorar Productos</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out pointer-events-none">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="LuXon Accesorios Exclusivos" onerror="this.src='https://placehold.co/1600x600/DDD0C1/222222?text=LuXon+Premium'">
+                <div class="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-transparent flex items-center">
+                    <div class="max-w-7xl mx-auto px-6 sm:px-12 w-full text-cream-50">
+                        <span class="inline-block px-3.5 py-1 bg-gold-400/90 text-charcoal text-xs uppercase font-bold tracking-widest rounded-full mb-4">Edición Limitada</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight max-w-xl">Diseño Premium al Alcance de tu Mano</h2>
+                        <p class="text-cream-200 text-sm sm:text-base max-w-md mb-8 font-light leading-relaxed">Pedidos directos y asesoramiento personalizado de forma rápida y sencilla.</p>
+                        <a href="#catalogo" class="inline-flex items-center gap-3 bg-cream-50 text-charcoal hover:bg-gold-400 hover:text-charcoal px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-lg group">
+                            <span>Ver Ofertas Especiales</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide Controls -->
+            <button id="prev-slide" aria-label="Anterior Slide" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-cream-50/20 hover:bg-cream-50/60 text-cream-50 hover:text-charcoal flex items-center justify-center backdrop-blur-sm transition-all border border-white/20">
+                <i class="fa-solid fa-chevron-left text-sm"></i>
+            </button>
+            <button id="next-slide" aria-label="Siguiente Slide" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-cream-50/20 hover:bg-cream-50/60 text-cream-50 hover:text-charcoal flex items-center justify-center backdrop-blur-sm transition-all border border-white/20">
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </button>
+
+            <!-- Indicators -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                <button class="carousel-dot w-8 h-2 rounded-full bg-gold-400 transition-all"></button>
+                <button class="carousel-dot w-2.5 h-2 rounded-full bg-cream-50/50 hover:bg-cream-50 transition-all"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MAIN CATALOG SECTION -->
+    <main id="catalogo" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-gold-600 font-semibold text-xs uppercase tracking-[0.3em] block mb-2">Nuestro Catálogo</span>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-4">Productos Exclusivos</h2>
+            <div class="w-20 h-0.5 bg-gold-400 mx-auto mb-4"></div>
+            <p class="text-charcoal/70 text-sm sm:text-base font-light">Elegí tu producto favorito, seleccioná tu variante/color y completá tu pedido vía WhatsApp.</p>
+        </div>
+
+        <!-- Filters & Search Bar -->
+        <div class="bg-cream-100 p-4 sm:p-6 rounded-2xl border border-cream-200 mb-10 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
+            
+            <!-- Category Tabs -->
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 w-full md:w-auto" id="category-filters">
+                <button class="filter-btn active-filter px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-charcoal text-cream-50" data-category="todos">
+                    Todos
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-cream-50 text-charcoal hover:bg-cream-200 border border-cream-300" data-category="accesorios">
+                    Accesorios
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-cream-50 text-charcoal hover:bg-cream-200 border border-cream-300" data-category="hogar">
+                    Hogar & Decoración
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-cream-50 text-charcoal hover:bg-cream-200 border border-cream-300" data-category="cuidado">
+                    Cuidado Personal
+                </button>
+            </div>
+
+            <!-- Search Input -->
+            <div class="relative w-full md:w-72">
+                <input type="text" id="search-input" placeholder="Buscar por ID o nombre..." class="w-full bg-cream-50 text-charcoal placeholder-charcoal/40 text-xs sm:text-sm rounded-full pl-10 pr-4 py-2.5 border border-cream-300 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-all">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-charcoal/40 text-sm"></i>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+            <!-- Dynamic Content Loaded via JavaScript -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div id="empty-state" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-cream-200 text-charcoal/40 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">No se encontraron productos</h3>
+            <p class="text-charcoal/60 text-sm">Intentá buscar con otros términos o seleccioná otra categoría.</p>
+        </div>
+
+    </main>
+
+    <!-- 4.5 IMAGE LIGHTBOX / GALLERY MODAL -->
+    <div id="image-modal" class="fixed inset-0 z-50 bg-charcoal/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 opacity-0 pointer-events-none transition-all duration-300">
+        <!-- Close Button -->
+        <button id="close-image-modal" class="absolute top-4 right-4 z-10 w-11 h-11 rounded-full bg-cream-50/20 hover:bg-cream-50/40 text-cream-50 flex items-center justify-center transition-colors border border-white/20">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+
+        <div class="max-w-4xl w-full flex flex-col items-center justify-center relative">
+            <!-- Main Expanded Image Container -->
+            <div class="relative w-full h-[50vh] sm:h-[60vh] flex items-center justify-center select-none overflow-hidden rounded-2xl bg-charcoal/40" id="lightbox-swipe-area">
+                <img id="lightbox-main-img" src="" alt="Vista ampliada" class="max-h-full max-w-full object-contain rounded-xl shadow-2xl transition-opacity duration-300">
+
+                <!-- Navigation Arrows -->
+                <button id="lightbox-prev" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-charcoal/60 hover:bg-gold-400 text-cream-50 hover:text-charcoal flex items-center justify-center transition-all border border-white/20 shadow-lg">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button id="lightbox-next" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-charcoal/60 hover:bg-gold-400 text-cream-50 hover:text-charcoal flex items-center justify-center transition-all border border-white/20 shadow-lg">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Lightbox Bottom Bar -->
+            <div class="w-full mt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-cream-50 bg-charcoal/60 p-4 rounded-2xl border border-white/10">
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-cream-100" id="lightbox-title">Nombre Producto</h4>
+                    <p class="text-xs text-gold-400 font-mono" id="lightbox-counter">Imagen 1 de 3</p>
+                </div>
+
+                <!-- Lightbox Variant Selector -->
+                <div id="lightbox-variant-container" class="w-full sm:w-auto">
+                    <!-- Dynamic Variant Select inside Lightbox -->
+                </div>
+
+                <!-- Thumbnails Bar -->
+                <div id="lightbox-thumbnails" class="flex items-center gap-2 overflow-x-auto py-1 max-w-full">
+                    <!-- Dynamic Thumbnails -->
+                </div>
+
+                <!-- Fast Add Action -->
+                <button id="lightbox-add-cart-btn" class="bg-gold-400 hover:bg-gold-300 text-charcoal px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-2 shadow-md shrink-0">
+                    <i class="fa-solid fa-bag-shopping text-sm"></i>
+                    <span>Agregar al Carrito</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. SHOPPING CART DRAWER / SLIDE-OVER -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 z-50 bg-charcoal/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-cream-50 shadow-2xl border-l border-cream-300 flex flex-col transform translate-x-full transition-transform duration-300">
+            
+            <!-- Drawer Header -->
+            <div class="p-6 border-b border-cream-200 flex items-center justify-between bg-cream-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-charcoal text-gold-400 flex items-center justify-center text-sm shadow-sm">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-charcoal">Tu Carrito LuXon</h3>
+                        <p class="text-[10px] uppercase tracking-wider text-gold-600 font-semibold" id="cart-item-count-label">0 productos seleccionados</p>
+                    </div>
+                </div>
+                <button id="close-cart-btn" class="w-8 h-8 rounded-full bg-cream-200 hover:bg-cream-300 text-charcoal flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Drawer Items List -->
+            <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                <!-- Dynamic Cart Items Rendered via JS -->
+            </div>
+
+            <!-- Empty Cart State -->
+            <div id="cart-empty-state" class="flex-1 flex flex-col items-center justify-center p-8 text-center">
+                <div class="w-16 h-16 rounded-full bg-cream-200 text-charcoal/40 flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+                <h4 class="font-serif text-lg font-bold text-charcoal mb-1">Tu carrito está vacío</h4>
+                <p class="text-xs text-charcoal/60 max-w-xs mb-6">Explorá nuestro catálogo exclusivo y agregá los productos que más te gusten.</p>
+                <button id="cart-continue-shopping" class="bg-charcoal hover:bg-gold-500 text-cream-50 hover:text-charcoal px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all">
+                    Ver Productos
+                </button>
+            </div>
+
+            <!-- Drawer Footer -->
+            <div id="cart-footer" class="p-6 border-t border-cream-200 bg-cream-100 hidden">
+                <div class="space-y-3 mb-4">
+                    <div class="flex justify-between items-center text-xs text-charcoal/70">
+                        <span>Productos totales:</span>
+                        <span id="cart-total-qty" class="font-bold font-mono">0</span>
+                    </div>
+                    <div class="flex justify-between items-center text-base font-bold text-charcoal pt-2 border-t border-cream-200">
+                        <span class="font-serif">Total Estimado:</span>
+                        <span id="cart-total-price" class="font-serif text-xl text-gold-600">$0</span>
+                    </div>
+                </div>
+
+                <!-- Additional Notes Optional -->
+                <div class="mb-4">
+                    <label class="block text-[11px] font-semibold text-charcoal/80 mb-1">Nota o aclaración para el vendedor (opcional):</label>
+                    <textarea id="cart-notes" rows="2" placeholder="Ej: Dirección de envío, preferencia horaria..." class="w-full bg-cream-50 text-charcoal text-xs rounded-xl p-2.5 border border-cream-300 focus:outline-none focus:border-gold-400 placeholder-charcoal/40 resize-none"></textarea>
+                </div>
+
+                <!-- Actions -->
+                <div class="space-y-2.5">
+                    <button id="checkout-whatsapp-btn" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2.5 text-xs sm:text-sm uppercase tracking-wider">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Finalizar Pedido por WhatsApp</span>
+                    </button>
+                    
+                    <button id="clear-cart-btn" class="w-full text-center text-xs text-red-600 hover:text-red-700 font-semibold py-1 transition-colors">
+                        Vaciar Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. FOOTER -->
+    <footer class="bg-charcoal text-cream-100 pt-16 pb-12 border-t border-gold-400/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-cream-100 to-gold-400 flex items-center justify-center text-charcoal font-serif font-bold text-xl shadow-md border border-gold-300">
+                            <span class="z-10 font-serif">L</span>
+                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-charcoal rounded-full flex items-center justify-center text-[7px] text-gold-400">
+                                <i class="fa-solid fa-sparkles"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-serif text-2xl font-bold tracking-widest text-cream-50">LuXon</span>
+                            <span class="text-[8px] uppercase tracking-[0.25em] text-gold-400 font-medium -mt-1 block">Luxury Collection</span>
+                        </div>
+                    </div>
+                    <p class="text-cream-300/70 text-xs leading-relaxed font-light">
+                        Tienda exclusiva de productos seleccionados. Calidad superior, atención personalizada y envíos seguros a todo el país.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-serif text-sm font-semibold text-gold-300 uppercase tracking-widest mb-4">Contacto Directo</h4>
+                    <ul class="space-y-2.5 text-xs text-cream-200/80 font-light">
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-brands fa-whatsapp text-gold-400 text-sm"></i>
+                            <span>WhatsApp: 11 2613-1910</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-location-dot text-gold-400 text-sm"></i>
+                            <span>Buenos Aires, Argentina</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-shield-check text-gold-400 text-sm"></i>
+                            <span>Ventas Mayoristas y Minoristas</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Socials & Hours -->
+                <div>
+                    <h4 class="font-serif text-sm font-semibold text-gold-300 uppercase tracking-widest mb-4">Horarios de Atención</h4>
+                    <p class="text-xs text-cream-200/80 font-light mb-4">
+                        Lunes a Sábados: 09:00 - 20:00 hs<br>
+                        Respondemos tus mensajes al instante.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://wa.me/5491126131910" target="_blank" aria-label="WhatsApp LuXon" class="w-9 h-9 rounded-full bg-white/5 hover:bg-gold-400 hover:text-charcoal border border-white/10 flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                        </a>
+                        <a href="#catalogo" aria-label="Catálogo LuXon" class="w-9 h-9 rounded-full bg-white/5 hover:bg-gold-400 hover:text-charcoal border border-white/10 flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-store text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-300/50 font-light gap-4">
+                <p>&copy; 2026 LuXon. Todos los derechos reservados.</p>
+                <p>Diseñado para GitHub Pages • Listo para Mobile</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. PRODUCT DATA WITH UNIQUE IDs, MULTIPLE IMAGES & VARIANTS ---
+        const products = [
+            {
+                        "id": "LUX-001",
+                        "title": "Reloj Minimalista Luxe Gold",
+                        "category": "accesorios",
+                        "price": "$45.900",
+                        "numericPrice": 45900,
+                        "badge": "Más Vendido",
+                        "badgeColor": "bg-gold-400 text-charcoal",
+                        "variants": [
+                                    "Dorado",
+                                    "Plata",
+                                    "Negro Matte"
+                        ],
+                        "images": [
+                                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+                                    "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
+                                    "https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop"
+                        ],
+                        "description": "Diseño ultra delgado con correa de acero inoxidable y bisel pulido."
+            },
+            {
+                        "id": "LUX-002",
+                        "title": "Lámpara Led Escultórica Cream",
+                        "category": "hogar",
+                        "price": "$38.500",
+                        "numericPrice": 38500,
+                        "badge": "Exclusivo",
+                        "badgeColor": "bg-charcoal text-cream-50",
+                        "variants": [
+                                    "Crema Mate",
+                                    "Negro Obsidiana"
+                        ],
+                        "images": [
+                                    "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1200&auto=format&fit=crop",
+                                    "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=1200&auto=format&fit=crop"
+                        ],
+                        "description": "Luz cálida graduable con acabado cerámico táctil."
+            },
+            {
+                        "id": "LUX-003",
+                        "title": "Set de Perfumería Premium Amber",
+                        "category": "cuidado",
+                        "price": "$53.000",
+                        "numericPrice": 53000,
+                        "badge": "Nuevo",
+                        "badgeColor": "bg-cream-300 text-charcoal",
+                        "variants": [
+                                    "Edición 50ml",
+                                    "Edición 100ml"
+                        ],
+                        "images": [
+                                    "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1200&auto=format&fit=crop",
+                                    "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1200&auto=format&fit=crop"
+                        ],
+                        "description": "Fragancia botánica de autor con notas de ámbar y vainilla."
+            },
+            {
+                        "id": "LUX-004",
+                        "title": "Gafas de Sol Vintage Classic",
+                        "category": "accesorios",
+                        "price": "$29.900",
+                        "numericPrice": 29900,
+                        "badge": "Tendencia",
+                        "badgeColor": "bg-gold-400 text-charcoal",
+                        "variants": [
+                                    "Carey",
+                                    "Negro Clásico"
+                        ],
+                        "images": [
+                                    "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1200&auto=format&fit=crop",
+                                    "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1200&auto=format&fit=crop"
+                        ],
+                        "description": "Marcos de acetato artesanal con protección UV400."
+            },
+            {
+                        "id": "LUX-005",
+                        "title": "Vela Aromática Soja & Canela",
+                        "category": "hogar",
+                        "price": "$18.200",
+                        "numericPrice": 18200,
+                        "badge": "Eco Friendly",
+                        "badgeColor": "bg-cream-400 text-cream-50",
+                        "variants": [
+                                    "Canela & Vainilla",
+                                    "Lavanda & Sándalo"
+                        ],
+                        "images": [
+                                    "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1200&auto=format&fit=crop"
+                        ],
+                        "description": "Cera de soja 100% natural en envase de vidrio soplado."
+            },
+            {
+                        "id": "LUX-006",
+                        "title": "Auriculares Inalámbricos Pro Sound",
+                        "category": "accesorios",
+                        "price": "$64.000",
+                        "numericPrice": 64000,
+                        "badge": "Premium",
+                        "badgeColor": "bg-gold-500 text-cream-50",
+                        "variants": [
+                                    "Nude Soft",
+                                    "Negro Grafito"
+                        ],
+                        "images": [
+                                    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop"
+                        ],
+                        "description": "Cancelación de ruido activa, estuche de carga rápida."
+            }
+];
+
+        // --- 1.5 CART STATE MANAGEMENT ---
+        let cart = JSON.parse(localStorage.getItem('luxon_cart')) || [];
+        const WHATSAPP_PHONE = '5491126131910';
+
+        function saveCart() {
+            localStorage.setItem('luxon_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function addToCart(productId, variant, quantity = 1) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const selectedVariant = variant || (product.variants ? product.variants[0] : 'Único');
+
+            // Buscar si ya existe el producto con la misma variante en el carrito
+            const existingIndex = cart.findIndex(item => item.id === productId && item.variant === selectedVariant);
+            
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += quantity;
+            } else {
+                cart.push({
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    numericPrice: product.numericPrice,
+                    image: product.images[0],
+                    variant: selectedVariant,
+                    qty: quantity
+                });
+            }
+            saveCart();
+            openCartDrawer();
+        }
+
+        function updateItemQty(productId, variant, delta) {
+            const index = cart.findIndex(item => item.id === productId && item.variant === variant);
+            if (index > -1) {
+                cart[index].qty += delta;
+                if (cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+                saveCart();
+            }
+        }
+
+        function removeFromCart(productId, variant) {
+            cart = cart.filter(item => !(item.id === productId && item.variant === variant));
+            saveCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            saveCart();
+        }
+
+        function formatMoney(amount) {
+            return '$' + amount.toLocaleString('es-AR');
+        }
+
+        // --- 2. RENDER PRODUCTS TO GRID ---
+        const productsGrid = document.getElementById('products-grid');
+        const emptyState = document.getElementById('empty-state');
+
+        function renderProducts(items) {
+            productsGrid.innerHTML = '';
+            
+            if (items.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'group bg-cream-50 rounded-3xl overflow-hidden border border-cream-200 hover:border-gold-300 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1';
+                
+                const mainImg = product.images && product.images.length > 0 ? product.images[0] : '';
+                const imgCount = product.images ? product.images.length : 1;
+
+                // Generar opciones de variantes si existen
+                let variantsHTML = '';
+                if (product.variants && product.variants.length > 0) {
+                    variantsHTML = `
+                        <div class="mb-3">
+                            <label class="block text-[10px] uppercase font-bold text-charcoal/60 mb-1">Opción / Color:</label>
+                            <select id="variant-${product.id}" class="w-full bg-cream-100 text-charcoal text-xs rounded-xl px-3 py-2 border border-cream-300 focus:outline-none focus:border-gold-400">
+                                ${product.variants.map(v => `<option value="${v}">${v}</option>`).join('')}
+                            </select>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Image & Badge Container -->
+                        <div class="relative h-64 overflow-hidden bg-cream-200 cursor-pointer" onclick="openLightbox('${product.id}', 0)">
+                            <img src="${mainImg}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/EAE0D5/222222?text=LuXon+Product'">
+                            
+                            <div class="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="w-10 h-10 rounded-full bg-cream-50/90 text-charcoal flex items-center justify-center shadow-lg">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                </span>
+                            </div>
+
+                            <span class="absolute top-4 left-4 text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full ${product.badgeColor} shadow-sm">
+                                ${product.badge}
+                            </span>
+                            
+                            ${imgCount > 1 ? `
+                                <span class="absolute top-4 right-4 text-[10px] font-bold bg-charcoal/70 text-cream-50 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1">
+                                    <i class="fa-solid fa-images"></i> ${imgCount}
+                                </span>
+                            ` : ''}
+
+                            <span class="absolute bottom-3 right-3 font-mono text-[11px] font-bold bg-charcoal/80 text-cream-100 backdrop-blur-md px-2.5 py-1 rounded-lg">
+                                ${product.id}
+                            </span>
+                        </div>
+
+                        <!-- Info Content -->
+                        <div class="p-6">
+                            <span class="text-[10px] uppercase font-semibold text-gold-600 tracking-wider block mb-1">${product.category}</span>
+                            <h3 class="font-serif text-lg font-bold text-charcoal mb-2 group-hover:text-gold-600 transition-colors">${product.title}</h3>
+                            <p class="text-charcoal/70 text-xs font-light leading-relaxed mb-4 line-clamp-2">${product.description}</p>
+                            
+                            ${variantsHTML}
+                        </div>
+                    </div>
+
+                    <!-- Footer / Price & Action -->
+                    <div class="px-6 pb-6 pt-0 mt-auto flex items-center justify-between gap-3">
+                        <div>
+                            <span class="text-[10px] text-charcoal/50 block font-medium">Precio</span>
+                            <span class="font-bold text-lg text-charcoal font-serif">${product.price}</span>
+                        </div>
+                        <button onclick="handleAddFromCard('${product.id}')" class="bg-charcoal hover:bg-gold-500 text-cream-50 hover:text-charcoal px-4 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-bag-shopping text-xs text-gold-400"></i>
+                            <span>Agregar</span>
+                        </button>
+                    </div>
+                `;
+                productsGrid.appendChild(card);
+            });
+        }
+
+        renderProducts(products);
+
+        function handleAddFromCard(productId) {
+            const selectEl = document.getElementById(`variant-${productId}`);
+            const selectedVariant = selectEl ? selectEl.value : null;
+            addToCart(productId, selectedVariant, 1);
+        }
+
+        // --- 3. SEARCH & FILTERS ---
+        const searchInput = document.getElementById('search-input');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        let currentCategory = 'todos';
+        let currentQuery = '';
+
+        function filterProducts() {
+            const filtered = products.filter(product => {
+                const matchesCategory = currentCategory === 'todos' || product.category === currentCategory;
+                const matchesSearch = product.title.toLowerCase().includes(currentQuery) || 
+                                      product.id.toLowerCase().includes(currentQuery) ||
+                                      product.description.toLowerCase().includes(currentQuery);
+                return matchesCategory && matchesSearch;
+            });
+            renderProducts(filtered);
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-charcoal', 'text-cream-50');
+                    b.classList.add('bg-cream-50', 'text-charcoal');
+                });
+                btn.classList.remove('bg-cream-50', 'text-charcoal');
+                btn.classList.add('bg-charcoal', 'text-cream-50');
+
+                currentCategory = btn.getAttribute('data-category');
+                filterProducts();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            currentQuery = e.target.value.toLowerCase().trim();
+            filterProducts();
+        });
+
+        // --- 4. HERO CAROUSEL LOGIC ---
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0', 'pointer-events-none');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('w-2.5', 'bg-cream-50/50');
+                    dot.classList.add('w-8', 'bg-gold-400');
+                } else {
+                    dot.classList.remove('w-8', 'bg-gold-400');
+                    dot.classList.add('w-2.5', 'bg-cream-50/50');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlideTimer() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlideTimer() {
+            clearInterval(slideInterval);
+        }
+
+        nextBtn.addEventListener('click', () => { stopSlideTimer(); nextSlide(); startSlideTimer(); });
+        prevBtn.addEventListener('click', () => { stopSlideTimer(); prevSlide(); startSlideTimer(); });
+        startSlideTimer();
+
+        // --- 4.5 IMAGE LIGHTBOX / GALLERY LOGIC ---
+        const imageModal = document.getElementById('image-modal');
+        const closeImageModalBtn = document.getElementById('close-image-modal');
+        const lightboxMainImg = document.getElementById('lightbox-main-img');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const lightboxThumbnails = document.getElementById('lightbox-thumbnails');
+        const lightboxVariantContainer = document.getElementById('lightbox-variant-container');
+        const lightboxAddCartBtn = document.getElementById('lightbox-add-cart-btn');
+        const lightboxSwipeArea = document.getElementById('lightbox-swipe-area');
+
+        let currentLightboxProduct = null;
+        let currentLightboxImgIndex = 0;
+
+        function openLightbox(productId, imageIndex = 0) {
+            currentLightboxProduct = products.find(p => p.id === productId);
+            if (!currentLightboxProduct || !currentLightboxProduct.images || currentLightboxProduct.images.length === 0) return;
+
+            currentLightboxImgIndex = imageIndex;
+            updateLightboxContent();
+            imageModal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeLightbox() {
+            imageModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function updateLightboxContent() {
+            if (!currentLightboxProduct) return;
+
+            const totalImages = currentLightboxProduct.images.length;
+            const currentImg = currentLightboxProduct.images[currentLightboxImgIndex];
+
+            lightboxMainImg.style.opacity = '0';
+            setTimeout(() => {
+                lightboxMainImg.src = currentImg;
+                lightboxMainImg.style.opacity = '1';
+            }, 150);
+
+            lightboxTitle.textContent = currentLightboxProduct.title;
+            lightboxCounter.textContent = `Imagen ${currentLightboxImgIndex + 1} de ${totalImages}`;
+
+            // Renderizar selector de variante en el Lightbox si aplica
+            if (currentLightboxProduct.variants && currentLightboxProduct.variants.length > 0) {
+                lightboxVariantContainer.innerHTML = `
+                    <label class="block text-[10px] uppercase font-bold text-gold-400 mb-1">Opción / Color:</label>
+                    <select id="lightbox-variant-select" class="bg-charcoal text-cream-50 text-xs rounded-xl px-3 py-2 border border-gold-400/50 focus:outline-none">
+                        ${currentLightboxProduct.variants.map(v => `<option value="${v}">${v}</option>`).join('')}
+                    </select>
+                `;
+                lightboxVariantContainer.classList.remove('hidden');
+            } else {
+                lightboxVariantContainer.innerHTML = '';
+                lightboxVariantContainer.classList.add('hidden');
+            }
+
+            lightboxThumbnails.innerHTML = '';
+            if (totalImages > 1) {
+                currentLightboxProduct.images.forEach((imgSrc, idx) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.className = `w-12 h-12 object-cover rounded-lg cursor-pointer border-2 transition-all ${
+                        idx === currentLightboxImgIndex ? 'border-gold-400 scale-105 opacity-100' : 'border-transparent opacity-50 hover:opacity-100'
+                    }`;
+                    thumb.addEventListener('click', () => {
+                        currentLightboxImgIndex = idx;
+                        updateLightboxContent();
+                    });
+                    lightboxThumbnails.appendChild(thumb);
+                });
+            }
+        }
+
+        lightboxNext.addEventListener('click', () => {
+            if (!currentLightboxProduct) return;
+            currentLightboxImgIndex = (currentLightboxImgIndex + 1) % currentLightboxProduct.images.length;
+            updateLightboxContent();
+        });
+
+        lightboxPrev.addEventListener('click', () => {
+            if (!currentLightboxProduct) return;
+            currentLightboxImgIndex = (currentLightboxImgIndex - 1 + currentLightboxProduct.images.length) % currentLightboxProduct.images.length;
+            updateLightboxContent();
+        });
+
+        closeImageModalBtn.addEventListener('click', closeLightbox);
+        imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeLightbox(); });
+
+        lightboxAddCartBtn.addEventListener('click', () => {
+            if (currentLightboxProduct) {
+                const variantSelect = document.getElementById('lightbox-variant-select');
+                const selectedVariant = variantSelect ? variantSelect.value : null;
+                closeLightbox();
+                addToCart(currentLightboxProduct.id, selectedVariant, 1);
+            }
+        });
+
+        // --- 5. SHOPPING CART DRAWER ---
+        const cartDrawerOverlay = document.getElementById('cart-drawer-overlay');
+        const cartDrawer = document.getElementById('cart-drawer');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartContinueShopping = document.getElementById('cart-continue-shopping');
+        const cartBadge = document.getElementById('cart-badge');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartEmptyState = document.getElementById('cart-empty-state');
+        const cartFooter = document.getElementById('cart-footer');
+        const cartItemCountLabel = document.getElementById('cart-item-count-label');
+        const cartTotalQty = document.getElementById('cart-total-qty');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const checkoutWhatsappBtn = document.getElementById('checkout-whatsapp-btn');
+        const clearCartBtn = document.getElementById('clear-cart-btn');
+        const cartNotes = document.getElementById('cart-notes');
+
+        function openCartDrawer() {
+            cartDrawerOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            cartDrawer.classList.remove('translate-x-full');
+        }
+
+        function closeCartDrawer() {
+            cartDrawerOverlay.classList.add('opacity-0', 'pointer-events-none');
+            cartDrawer.classList.add('translate-x-full');
+        }
+
+        openCartBtn.addEventListener('click', openCartDrawer);
+        closeCartBtn.addEventListener('click', closeCartDrawer);
+        cartContinueShopping.addEventListener('click', closeCartDrawer);
+        cartDrawerOverlay.addEventListener('click', (e) => { if (e.target === cartDrawerOverlay) closeCartDrawer(); });
+
+        function updateCartUI() {
+            const totalUnits = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalCost = cart.reduce((sum, item) => sum + (item.numericPrice * item.qty), 0);
+
+            cartBadge.textContent = totalUnits;
+
+            if (cart.length === 0) {
+                cartItemsContainer.classList.add('hidden');
+                cartFooter.classList.add('hidden');
+                cartEmptyState.classList.remove('hidden');
+                cartItemCountLabel.textContent = '0 productos seleccionados';
+                return;
+            }
+
+            cartEmptyState.classList.add('hidden');
+            cartItemsContainer.classList.remove('hidden');
+            cartFooter.classList.remove('hidden');
+            cartItemCountLabel.textContent = `${totalUnits} ${totalUnits === 1 ? 'producto seleccionado' : 'productos seleccionados'}`;
+            cartTotalQty.textContent = totalUnits;
+            cartTotalPrice.textContent = formatMoney(totalCost);
+
+            cartItemsContainer.innerHTML = '';
+            cart.forEach(item => {
+                const itemSubtotal = item.numericPrice * item.qty;
+                const cartItemEl = document.createElement('div');
+                cartItemEl.className = 'flex items-center gap-3 bg-cream-100 p-3 rounded-2xl border border-cream-200 shadow-sm';
+                
+                cartItemEl.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-cover rounded-xl border border-cream-300" onerror="this.src='https://placehold.co/150x150/EAE0D5/222222?text=Item'">
+                    
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-serif text-xs font-bold text-charcoal truncate">${item.title}</h4>
+                            <button onclick="removeFromCart('${item.id}', '${item.variant}')" class="text-charcoal/40 hover:text-red-500 text-xs ml-1 transition-colors">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-mono text-[10px] text-gold-600">${item.id}</span>
+                            <span class="text-[10px] bg-cream-200 text-charcoal px-1.5 py-0.5 rounded font-medium">Opción: ${item.variant}</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-2 bg-cream-50 px-2 py-1 rounded-lg border border-cream-300">
+                                <button onclick="updateItemQty('${item.id}', '${item.variant}', -1)" class="text-charcoal hover:text-gold-600 text-xs px-1 font-bold">-</button>
+                                <span class="font-mono text-xs font-bold text-charcoal">${item.qty}</span>
+                                <button onclick="updateItemQty('${item.id}', '${item.variant}', 1)" class="text-charcoal hover:text-gold-600 text-xs px-1 font-bold">+</button>
+                            </div>
+                            <span class="font-serif text-xs font-bold text-charcoal">${formatMoney(itemSubtotal)}</span>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItemEl);
+            });
+        }
+
+        // WhatsApp Multi-Item Checkout con Variantes
+        checkoutWhatsappBtn.addEventListener('click', () => {
+            if (cart.length === 0) return;
+
+            const totalUnits = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalCost = cart.reduce((sum, item) => sum + (item.numericPrice * item.qty), 0);
+            const notes = cartNotes.value.trim();
+
+            let message = `Hola LuXon! 👋 Quisiera confirmar el siguiente pedido desde el catálogo:\n\n`;
+            message += `🛍️ *RESUMEN DEL PEDIDO:*\n`;
+            message += `──────────────────────\n`;
+
+            cart.forEach((item, index) => {
+                const subtotal = formatMoney(item.numericPrice * item.qty);
+                message += `${index + 1}. *${item.title}*\n`;
+                message += `   • ID: \`${item.id}\` | Opción: *${item.variant}*\n`;
+                message += `   • Cantidad: ${item.qty} | Subtotal: ${subtotal}\n\n`;
+            });
+
+            message += `──────────────────────\n`;
+            message += `📦 *Total Ítems:* ${totalUnits}\n`;
+            message += `💰 *TOTAL GENERAL:* *${formatMoney(totalCost)}*\n`;
+
+            if (notes) {
+                message += `\n💬 *Nota adicional:* ${notes}\n`;
+            }
+
+            message += `\n¿Me confirman disponibilidad y coordinamos el pago/envío? ¡Muchas gracias!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+
+        clearCartBtn.addEventListener('click', () => {
+            if (confirm('¿Estás seguro de que deseas vaciar el carrito?')) {
+                clearCart();
+            }
+        });
+
+        updateCartUI();
+    </script>
+</body>
+</html>
