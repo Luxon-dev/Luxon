@@ -185,65 +185,116 @@ def git_command(args: list[str]) -> subprocess.CompletedProcess:
 
 
 def publish_to_github() -> tuple[bool, str]:
-    """Publica los archivos de LuXon 2.0 en la rama Git configurada."""
+    """Publica el catálogo sin descartar cambios locales ajenos al catálogo."""
+    stash_created = False
+    stash_ref_before = ""
+    result_message = ""
+    success = False
+
     try:
         check = git_command(["rev-parse", "--is-inside-work-tree"])
         if check.returncode != 0:
             return False, "La carpeta no parece ser un repositorio Git.\n" + (check.stderr or check.stdout)
 
-        project_files = ["index.html", "app.py", "worker.js", "wrangler.toml", "README_LUXON_2.txt", ".gitignore"]
+        project_files = [
+            "index.html", "app.py", "worker.js", "wrangler.toml",
+            "README_LUXON_2.txt", ".gitignore"
+        ]
         existing_files = [name for name in project_files if (BASE_DIR / name).exists()]
-        add = git_command(["add", "--", *existing_files])
-        if add.returncode != 0:
-            return False, "No se pudo preparar index.html:\n" + add.stderr
+        if not existing_files:
+            return False, "No se encontraron archivos del proyecto para publicar."
 
-        staged = git_command(["diff", "--cached", "--quiet"])
-        if staged.returncode not in (0, 1):
-            return False, "No se pudo comprobar el estado de Git:\n" + (staged.stderr or staged.stdout)
+        # Comprueba cambios de los archivos del proyecto respecto del último commit.
+        # --only evita incluir accidentalmente otros archivos que el usuario ya
+        # tuviera preparados (staged) en el repositorio.
+        changed = git_command(["diff", "HEAD", "--quiet", "--", *existing_files])
+        if changed.returncode not in (0, 1):
+            return False, "No se pudo comprobar el estado de los archivos.\n" + (changed.stderr or changed.stdout)
 
-        # Si hay cambios preparados, crea el commit. Si no los hay, igualmente
-        # continúa: puede existir un commit local pendiente de subir de un intento anterior.
-        if staged.returncode == 1:
-            commit = git_command(["commit", "-m", "Actualizacion de catalogo LuXon"])
+        if changed.returncode == 1:
+            commit = git_command([
+                "commit", "--only", "-m", "Actualizacion de catalogo LuXon",
+                "--", *existing_files
+            ])
             if commit.returncode != 0:
-                return False, "No se pudo crear el commit:\n" + (commit.stderr or commit.stdout)
+                return False, "No se pudo guardar el commit del catálogo.\n\n" + (commit.stderr or commit.stdout)
 
         branch_result = git_command(["branch", "--show-current"])
         branch = (branch_result.stdout or "").strip() or GITHUB_BRANCH
 
-        # Trae e integra primero los commits remotos. Esto resuelve el rechazo
-        # 'fetch first' sin sobrescribir el contenido que ya está en GitHub.
+        # Después de guardar el catálogo, aparta temporalmente cualquier otro
+        # cambio pendiente (incluidos archivos no rastreados) para que rebase
+        # no se bloquee por modificaciones ajenas al catálogo.
+        status = git_command(["status", "--porcelain"])
+        if status.returncode != 0:
+            return False, "No se pudo revisar el estado del repositorio.\n" + (status.stderr or status.stdout)
+
+        if status.stdout.strip():
+            before = git_command(["rev-parse", "-q", "--verify", "refs/stash"])
+            stash_ref_before = before.stdout.strip() if before.returncode == 0 else ""
+            stash = git_command([
+                "stash", "push", "--include-untracked",
+                "-m", "LuXon: cambios locales protegidos antes de publicar"
+            ])
+            if stash.returncode != 0:
+                return False, "No se pudieron proteger temporalmente los otros cambios locales.\n\n" + (stash.stderr or stash.stdout)
+            after = git_command(["rev-parse", "-q", "--verify", "refs/stash"])
+            stash_ref_after = after.stdout.strip() if after.returncode == 0 else ""
+            stash_created = bool(stash_ref_after and stash_ref_after != stash_ref_before)
+
         fetch = git_command(["fetch", GITHUB_REMOTE, branch])
         if fetch.returncode != 0:
-            return False, (
-                "Los cambios están guardados localmente, pero no se pudo consultar GitHub.\n\n"
-                + (fetch.stderr or fetch.stdout)
-            )
+            result_message = "Los cambios quedaron guardados localmente, pero no se pudo consultar GitHub.\n\n" + (fetch.stderr or fetch.stdout)
+        else:
+            rebase = git_command(["rebase", f"{GITHUB_REMOTE}/{branch}"])
+            if rebase.returncode != 0:
+                details = (rebase.stderr or rebase.stdout).strip()
+                git_command(["rebase", "--abort"])
+                result_message = (
+                    "GitHub tiene cambios que entran en conflicto con los archivos locales.\n"
+                    "Tus cambios siguen guardados; no se sobrescribió GitHub.\n\n"
+                    "Detalle del conflicto:\n" + details
+                )
+            else:
+                push = git_command(["push", GITHUB_REMOTE, branch])
+                if push.returncode == 0:
+                    success = True
+                    result_message = (
+                        "¡Publicación completada!\n"
+                        "Los cambios del catálogo se sincronizaron con GitHub. "
+                        "GitHub Pages actualizará la tienda en unos instantes."
+                    )
+                else:
+                    result_message = (
+                        "Los cambios siguen guardados localmente, pero GitHub no confirmó el envío.\n\n"
+                        + (push.stderr or push.stdout)
+                    )
 
-        rebase = git_command(["rebase", f"{GITHUB_REMOTE}/{branch}"])
-        if rebase.returncode != 0:
-            details = (rebase.stderr or rebase.stdout).strip()
-            # Deja el repositorio en su estado anterior al intento de rebase.
-            # El commit local permanece guardado; no se descarta ningún cambio.
-            git_command(["rebase", "--abort"])
-            return False, (
-                "GitHub tiene cambios que no se pueden integrar automáticamente.\n"
-                "Tus cambios locales siguen guardados y no se sobrescribió GitHub.\n\n"
-                "Hay que resolver el conflicto antes de publicar. Detalle:\n" + details
-            )
+        # Restaura siempre los cambios que se apartaron. Si hay un conflicto al
+        # restaurarlos, Git conserva la entrada del stash para recuperación.
+        if stash_created:
+            restore = git_command(["stash", "pop", "--index"])
+            if restore.returncode != 0:
+                restore_detail = (restore.stderr or restore.stdout).strip()
+                result_message += (
+                    "\n\nATENCIÓN: la publicación terminó, pero algunos cambios locales apartados "
+                    "no pudieron restaurarse automáticamente. No se eliminaron: quedaron guardados "
+                    "en el stash de Git. Detalle:\n" + restore_detail
+                )
+                success = False
 
-        push = git_command(["push", GITHUB_REMOTE, branch])
-        if push.returncode != 0:
-            return False, (
-                "Los cambios siguen guardados localmente, pero GitHub no confirmó el envío.\n\n"
-                + (push.stderr or push.stdout)
-            )
-        return True, "¡Publicación completada!\nLos cambios locales se sincronizaron con GitHub. GitHub Pages actualizará la tienda en unos instantes."
+        return success, result_message
+
     except FileNotFoundError:
         return False, "No se encontró Git. Instalá Git for Windows y volvé a intentarlo."
     except subprocess.TimeoutExpired:
         return False, "Git tardó demasiado en responder. Revisá la conexión e intentá nuevamente."
     except Exception as exc:
+        # No se intenta borrar ni resetear ningún cambio ante un error inesperado.
+        if stash_created:
+            restore = git_command(["stash", "pop", "--index"])
+            if restore.returncode != 0:
+                return False, f"Error al publicar: {exc}\nLos cambios adicionales siguen protegidos en el stash de Git."
         return False, f"Error al publicar: {exc}"
 
 
