@@ -222,9 +222,10 @@ def publish_to_github() -> tuple[bool, str]:
         branch_result = git_command(["branch", "--show-current"])
         branch = (branch_result.stdout or "").strip() or GITHUB_BRANCH
 
-        # Después de guardar el catálogo, aparta temporalmente cualquier otro
-        # cambio pendiente (incluidos archivos no rastreados) para que rebase
-        # no se bloquee por modificaciones ajenas al catálogo.
+        # Después de guardar el catálogo, aparta temporalmente SOLO cambios
+        # de archivos ya rastreados por Git. No incluye archivos/carpetas nuevos:
+        # Windows puede impedir que Git los retire temporalmente (Permission denied),
+        # y no hace falta moverlos para un rebase normal.
         status = git_command(["status", "--porcelain"])
         if status.returncode != 0:
             return False, "No se pudo revisar el estado del repositorio.\n" + (status.stderr or status.stdout)
@@ -233,8 +234,8 @@ def publish_to_github() -> tuple[bool, str]:
             before = git_command(["rev-parse", "-q", "--verify", "refs/stash"])
             stash_ref_before = before.stdout.strip() if before.returncode == 0 else ""
             stash = git_command([
-                "stash", "push", "--include-untracked",
-                "-m", "LuXon: cambios locales protegidos antes de publicar"
+                "stash", "push",
+                "-m", "LuXon: cambios rastreados protegidos antes de publicar"
             ])
             if stash.returncode != 0:
                 return False, "No se pudieron proteger temporalmente los otros cambios locales.\n\n" + (stash.stderr or stash.stdout)
