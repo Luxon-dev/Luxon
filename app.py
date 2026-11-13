@@ -198,24 +198,47 @@ def publish_to_github() -> tuple[bool, str]:
             return False, "No se pudo preparar index.html:\n" + add.stderr
 
         staged = git_command(["diff", "--cached", "--quiet"])
-        if staged.returncode == 0:
-            return True, "No hay cambios nuevos para publicar. GitHub ya está actualizado."
         if staged.returncode not in (0, 1):
-            return False, "No se pudo comprobar el estado de Git:\n" + staged.stderr
+            return False, "No se pudo comprobar el estado de Git:\n" + (staged.stderr or staged.stdout)
 
-        commit = git_command(["commit", "-m", "Actualizacion de catalogo LuXon"])
-        if commit.returncode != 0:
-            return False, "No se pudo crear el commit:\n" + (commit.stderr or commit.stdout)
+        # Si hay cambios preparados, crea el commit. Si no los hay, igualmente
+        # continúa: puede existir un commit local pendiente de subir de un intento anterior.
+        if staged.returncode == 1:
+            commit = git_command(["commit", "-m", "Actualizacion de catalogo LuXon"])
+            if commit.returncode != 0:
+                return False, "No se pudo crear el commit:\n" + (commit.stderr or commit.stdout)
 
         branch_result = git_command(["branch", "--show-current"])
         branch = (branch_result.stdout or "").strip() or GITHUB_BRANCH
+
+        # Trae e integra primero los commits remotos. Esto resuelve el rechazo
+        # 'fetch first' sin sobrescribir el contenido que ya está en GitHub.
+        fetch = git_command(["fetch", GITHUB_REMOTE, branch])
+        if fetch.returncode != 0:
+            return False, (
+                "Los cambios están guardados localmente, pero no se pudo consultar GitHub.\n\n"
+                + (fetch.stderr or fetch.stdout)
+            )
+
+        rebase = git_command(["rebase", f"{GITHUB_REMOTE}/{branch}"])
+        if rebase.returncode != 0:
+            details = (rebase.stderr or rebase.stdout).strip()
+            # Deja el repositorio en su estado anterior al intento de rebase.
+            # El commit local permanece guardado; no se descarta ningún cambio.
+            git_command(["rebase", "--abort"])
+            return False, (
+                "GitHub tiene cambios que no se pueden integrar automáticamente.\n"
+                "Tus cambios locales siguen guardados y no se sobrescribió GitHub.\n\n"
+                "Hay que resolver el conflicto antes de publicar. Detalle:\n" + details
+            )
+
         push = git_command(["push", GITHUB_REMOTE, branch])
         if push.returncode != 0:
             return False, (
-                "Los cambios quedaron guardados localmente, pero GitHub no confirmó el envío.\n\n"
+                "Los cambios siguen guardados localmente, pero GitHub no confirmó el envío.\n\n"
                 + (push.stderr or push.stdout)
             )
-        return True, "¡Publicación completada!\nGitHub Pages actualizará la tienda en unos instantes."
+        return True, "¡Publicación completada!\nLos cambios locales se sincronizaron con GitHub. GitHub Pages actualizará la tienda en unos instantes."
     except FileNotFoundError:
         return False, "No se encontró Git. Instalá Git for Windows y volvé a intentarlo."
     except subprocess.TimeoutExpired:
