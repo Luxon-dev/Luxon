@@ -1,0 +1,9 @@
+name = "luxon-assistant"
+main = "worker.js"
+compatibility_date = "2026-11-12"
+
+[vars]
+# Reemplazá este valor por el origen exacto de tu GitHub Pages.
+# Ejemplo: https://tuusuario.github.io
+ALLOWED_ORIGIN = "https://luxon-dev.github.io"
+MODEL = "gemini-3.8-flash"
