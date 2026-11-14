@@ -163,6 +163,98 @@
         .luxon-wishlist-panel{max-height:86vh;overflow:auto}
         @media(max-width:640px){.luxon-daily-image{min-height:210px}}
 
+
+/* =========================================================
+   LuXon NOIR — rediseño premium oscuro
+   ========================================================= */
+:root{color-scheme:dark}
+html,body{background:#070707!important;color:#f4f0e8!important}
+body{background:radial-gradient(ellipse at 50% -15%,#252018 0%,#0b0b0b 42%,#050505 100%)!important;color:#f4f0e8!important}
+header.sticky{background:rgba(8,8,8,.92)!important;border-color:rgba(212,175,55,.22)!important}
+header .text-charcoal, header .text-charcoal\/60,header .text-charcoal\/55{color:#f3eee4!important}
+header .bg-white,header .bg-cream-50,header .bg-cream-100{background:#111!important;border-color:#29251d!important}
+header a:hover{color:#e2c16b!important}
+#hero-carousel{background:#080808}
+.carousel-slide img{filter:brightness(.68) saturate(.78)}
+.carousel-slide>div{background:linear-gradient(90deg,rgba(0,0,0,.91),rgba(0,0,0,.48) 58%,rgba(0,0,0,.08))!important}
+.carousel-slide h1,.carousel-slide h2{font-family:'Playfair Display',serif!important;font-style:italic!important;font-weight:600!important;letter-spacing:-.035em;text-shadow:0 8px 30px #000}
+main{background:transparent}
+#destacados,#catalogo,#luxon-recent-section,#luxon-daily-section,#luxon-journal{color:#f4f0e8}
+#destacados h2,#catalogo h2,#luxon-recent-section h2,#luxon-journal h2{color:#f4f0e8!important;font-style:italic}
+#destacados p,#catalogo p,#luxon-recent-section p,#luxon-journal p{color:#b9b2a5}
+#destacados .text-gold-600,#catalogo .text-gold-600{color:#d9b85e!important}
+.product-card{background:linear-gradient(155deg,#191919,#0d0d0d)!important;border:1px solid rgba(218,185,99,.2)!important;border-radius:20px!important;color:#f4f0e8!important;box-shadow:0 12px 35px rgba(0,0,0,.28)}
+.product-card:hover{border-color:rgba(224,190,102,.7)!important;box-shadow:0 22px 55px rgba(0,0,0,.55),0 0 28px rgba(212,175,55,.08)!important}
+.product-card .product-photo{aspect-ratio:2.05/1!important;background:#151515!important;position:relative}
+.product-card .product-photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(0deg,rgba(0,0,0,.42),transparent);pointer-events:none}
+.product-card .product-photo img{object-fit:cover!important;object-position:center 42%;filter:saturate(.9);transition:transform .7s,filter .7s}
+.product-card:hover .product-photo img{transform:scale(1.06)!important;filter:saturate(1.08)}
+.product-card .product-info{padding:16px 18px 10px!important}
+.product-card .product-title{font-family:'Playfair Display',serif!important;font-size:21px!important;font-style:italic!important;line-height:1.2!important;color:#f5f0e7!important;min-height:0!important}
+.product-card .product-info .text-charcoal\/50,.product-card .product-info .text-charcoal\/55{color:#aaa294!important}
+.product-card .product-info .text-gold-600{color:#d9b85e!important}
+.product-card .product-price{color:#e5c675!important;font-size:23px!important}
+.product-card select{background:#171717!important;color:#eee!important;border-color:#393329!important}
+.product-card .px-\[18px\] .text-charcoal\/45{color:#a79d8c!important}
+.product-card .bg-charcoal{background:#d2ad51!important;color:#080808!important}
+.product-card .bg-charcoal i{color:#080808!important}
+.featured-track,.luxon-recent-track{scrollbar-color:#92783e #171717!important}
+.featured-track .product-card{width:340px!important;flex:0 0 340px!important}
+.featured-arrow{background:#151515!important;color:#e5c675!important;border-color:rgba(212,175,55,.5)!important}
+.featured-arrow:hover{background:#d4af37!important;color:#080808!important}
+#catalogo{scroll-margin-top:100px}
+#catalogo .bg-cream-100,#catalogo .bg-white{background:#101010!important;border-color:#29251d!important}
+#catalogo input{background:#171717!important;color:#fff!important;border-color:#383329!important}
+#catalogo .filter-btn{background:#151515!important;color:#d9d0bf!important;border-color:#393329!important}
+#catalogo .filter-btn.active-filter{background:#d4af37!important;color:#080808!important;border-color:#d4af37!important}
+.luxon-discovery{background:radial-gradient(circle at 85% 15%,rgba(212,175,55,.12),transparent 32%),linear-gradient(135deg,#111,#090909 65%,#17130c)!important;border-top:1px solid #292319;border-bottom:1px solid #292319}
+.luxon-daily{background:linear-gradient(120deg,#17140f,#0c0c0c 58%,#211b10)!important;border:1px solid rgba(212,175,55,.3)!important;color:#f4f0e8!important}
+.luxon-daily h2,.luxon-daily h3,.luxon-daily p{color:#f4f0e8!important}
+.luxon-daily .text-charcoal{color:#eee!important}
+.luxon-daily-image{background:#151515!important}
+.luxon-editorial-card{background:linear-gradient(145deg,#191919,#0c0c0c)!important;border:1px solid #30291d!important;color:#eee!important}
+.luxon-editorial-card h3,.luxon-editorial-card p{color:#eee!important}
+.luxon-editorial-card p.text-charcoal\/55{color:#aaa!important}
+.luxon-faq{background:#0b0b0b!important;border-color:#292319!important}
+.luxon-faq h2,.luxon-faq summary{color:#f2eee5!important}
+.luxon-faq details{border-color:#29251d!important}
+.luxon-faq details p{color:#aaa294!important}
+section.bg-white{background:#0d0d0d!important;border-color:#29251d!important}
+section.bg-white .text-charcoal,section.bg-white .text-charcoal\/55{color:#eee!important}
+footer{background:#050505!important}
+#cart-drawer{background:#101010!important;color:#eee!important;border-color:#393329!important}
+#cart-drawer .bg-cream-50,#cart-drawer .bg-cream-100,#cart-drawer .bg-cream-200{background:#171717!important;color:#eee!important;border-color:#393329!important}
+#cart-drawer .text-charcoal,#cart-drawer .text-charcoal\/70,#cart-drawer .text-charcoal\/60,#cart-drawer .text-charcoal\/80{color:#eee!important}
+#cart-drawer input,#cart-drawer textarea,#cart-drawer select{background:#090909!important;color:#eee!important;border-color:#393329!important}
+#image-modal{background:rgba(0,0,0,.96)!important}
+.luxon-chat-panel{background:#101010!important;border:1px solid #3a3020!important}
+.luxon-chat-panel form,.luxon-chat-panel .bg-white{background:#111!important}
+.luxon-chat-panel input{background:#080808!important;color:#fff!important;border-color:#393329!important}
+.luxon-chat-bot{background:#201d17!important;color:#eee!important;border-color:#403724!important}
+.luxon-compare-dock{background:rgba(17,17,17,.96)!important;border-color:#80672f!important}
+.luxon-compare-dock span{color:#eee!important}
+.luxon-result-card{background:#171717!important;border-color:#3a3020!important;color:#eee!important}
+.luxon-result-card .text-charcoal{color:#eee!important}
+.luxon-compare-toggle,.luxon-share{background:#191919!important;color:#e4c16b!important;border-color:#514328!important}
+.luxon-modal,.luxon-wishlist-modal{background:rgba(0,0,0,.86)!important}
+#luxon-wishlist-modal .bg-white{background:#111!important;color:#eee!important}
+#luxon-wishlist-modal .text-charcoal{color:#eee!important}
+.luxon-category-section{margin:0 0 46px;padding:0 0 30px;border-bottom:1px solid rgba(212,175,55,.16)}
+.luxon-category-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}
+.luxon-category-heading h3{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(25px,3vw,36px);color:#f4f0e8;letter-spacing:-.025em}
+.luxon-category-heading span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#b99a53}
+.luxon-category-track{display:flex;gap:18px;overflow-x:auto;scroll-behavior:smooth;padding:4px 2px 18px;scrollbar-width:thin;scrollbar-color:#92783e #171717}
+.luxon-category-track .product-card{width:330px;flex:0 0 330px}
+#catalogo .luxon-catalog-intro{padding:30px 10px 12px}
+@media(max-width:640px){
+ .featured-track .product-card{width:285px!important;flex-basis:285px!important}
+ .luxon-category-track .product-card{width:275px;flex-basis:275px}
+ .product-card .product-photo{aspect-ratio:1.8/1!important}
+ .product-card .product-title{font-size:19px!important}
+ .luxon-category-heading{align-items:start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){.luxon-category-track{scroll-behavior:auto}}
+
     </style>
 </head>
 <body class="antialiased selection:bg-gold-300 selection:text-charcoal flex flex-col min-h-screen">
@@ -408,7 +500,7 @@
                 </div>
             </div>
             <div class="flex items-center justify-between mb-5"><p id="catalog-count" class="text-xs text-charcoal/55"></p><button id="close-catalog" class="text-xs uppercase tracking-wider font-semibold text-gold-600 hover:text-charcoal"><i class="fa-solid fa-arrow-up mr-1"></i> Volver a destacados</button></div>
-            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-7"></div>
+            <div id="products-grid" class="block space-y-8"></div>
             <div id="empty-state" class="hidden text-center py-16">
                 <div class="w-16 h-16 bg-cream-200 text-charcoal/40 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-box-open"></i></div>
                 <h3 class="font-serif text-xl font-semibold text-charcoal mb-2">No se encontraron productos</h3>
@@ -1031,7 +1123,37 @@
                 return;
             }
             emptyState.classList.add('hidden');
-            visible.forEach(product => productsGrid.appendChild(createProductCard(product, false)));
+
+            // Vista por colecciones: cada categoría tiene su propio carrusel horizontal.
+            const grouped = currentCategory === 'todos' && !currentQuery;
+            if (grouped) {
+                const categories = new Map();
+                visible.forEach(product => {
+                    const name = (product.category || 'Otros').trim();
+                    if (!categories.has(name)) categories.set(name, []);
+                    categories.get(name).push(product);
+                });
+                [...categories.entries()]
+                    .sort((a,b) => a[0].localeCompare(b[0], 'es'))
+                    .forEach(([name, list]) => {
+                        const section = document.createElement('section');
+                        section.className = 'luxon-category-section';
+                        const heading = document.createElement('div');
+                        heading.className = 'luxon-category-heading';
+                        const title = document.createElement('h3');
+                        title.textContent = name.replace(/\b\w/g, c => c.toUpperCase());
+                        const count = document.createElement('span');
+                        count.textContent = `${list.length} ${list.length === 1 ? 'producto' : 'productos'} · Deslizá para explorar`;
+                        heading.append(title, count);
+                        const track = document.createElement('div');
+                        track.className = 'luxon-category-track';
+                        list.forEach(product => track.appendChild(createProductCard(product, true)));
+                        section.append(heading, track);
+                        productsGrid.appendChild(section);
+                    });
+            } else {
+                visible.forEach(product => productsGrid.appendChild(createProductCard(product, false)));
+            }
         }
 
         renderFeaturedProducts();
