@@ -255,6 +255,59 @@ footer{background:#050505!important}
 }
 @media(prefers-reduced-motion:reduce){.luxon-category-track{scroll-behavior:auto}}
 
+
+        /* LuXon Editorial Gallery — inclinación arquitectónica de referencia */
+        #destacados{padding-top:clamp(58px,8vw,108px)!important;padding-bottom:clamp(58px,8vw,108px)!important;overflow:hidden}
+        #destacados>div:first-child{display:block!important;text-align:center;max-width:900px;margin:0 auto 34px!important}
+        #destacados>div:first-child>div{max-width:none!important}
+        #destacados>div:first-child>div>span{display:block;text-align:center;letter-spacing:.34em!important;color:#c7a653!important;font-size:10px!important;margin-bottom:16px!important}
+        .luxon-featured-title{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;font-family:Montserrat,sans-serif!important;font-size:clamp(43px,7.8vw,94px)!important;font-weight:800!important;font-style:italic!important;line-height:.79!important;letter-spacing:-.075em!important;color:#f4f0e8!important;margin:0 auto!important;text-align:center}
+        .luxon-featured-title span{display:block;white-space:nowrap}
+        .luxon-featured-title em{display:block;font-family:'Playfair Display',serif!important;font-weight:400!important;font-size:1.04em!important;letter-spacing:-.075em!important;line-height:.98!important;margin-top:-1px;font-style:italic!important;color:#e6cf9b!important}
+        #destacados>div:first-child p{margin:22px auto 0!important;max-width:510px!important;font-size:clamp(12px,1.25vw,16px)!important;line-height:1.5!important;color:#b9b2a5!important}
+        #destacados>div:first-child>a{display:none!important}
+        #destacados .relative:has(>#featured-track){margin-left:-4vw;margin-right:-4vw;padding:0 4vw;overflow:visible}
+        #featured-track{display:flex!important;align-items:stretch!important;gap:9px!important;overflow-x:auto!important;overflow-y:visible!important;padding:12px 2px 22px!important;scrollbar-width:none!important;perspective:1400px}
+        #featured-track::-webkit-scrollbar{display:none}
+        #featured-track .product-card{width:clamp(230px,25vw,350px)!important;flex:0 0 clamp(230px,25vw,350px)!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;transform:none!important}
+        #featured-track .product-card:hover{box-shadow:none!important;transform:translateY(-5px)!important}
+        #featured-track .product-card .product-photo{height:clamp(270px,34vw,450px)!important;aspect-ratio:auto!important;overflow:hidden!important;border:1px solid rgba(230,207,155,.23)!important;border-radius:0!important;background:#171717!important;clip-path:polygon(0 2%,100% 0,100% 98%,0 100%);transform:skewY(-1.3deg);transform-origin:center;box-shadow:0 18px 45px rgba(0,0,0,.32)}
+        #featured-track .product-card:nth-child(4n+1) .product-photo{clip-path:polygon(0 0,100% 5%,100% 96%,0 100%);transform:perspective(900px) rotateY(5deg) skewY(1.2deg)}
+        #featured-track .product-card:nth-child(4n+2) .product-photo{clip-path:polygon(0 4%,100% 0,100% 100%,0 96%);transform:perspective(900px) rotateY(2deg) skewY(-.5deg)}
+        #featured-track .product-card:nth-child(4n+3) .product-photo{clip-path:polygon(0 0,100% 3%,100% 97%,0 100%);transform:perspective(900px) rotateY(-2deg) skewY(.5deg)}
+        #featured-track .product-card:nth-child(4n) .product-photo{clip-path:polygon(0 5%,100% 0,100% 100%,0 95%);transform:perspective(900px) rotateY(-5deg) skewY(-1.2deg)}
+        #featured-track .product-card .product-photo img{object-fit:cover!important;filter:saturate(.84) contrast(1.04)!important;transition:transform .8s,filter .8s!important}
+        #featured-track .product-card:hover .product-photo img{transform:scale(1.055)!important;filter:saturate(1.05) contrast(1.04)!important}
+        #featured-track .product-card .product-info{padding:18px 8px 8px!important;text-align:center}
+        #featured-track .product-card .product-title{font-size:clamp(18px,1.8vw,24px)!important;font-style:italic!important;letter-spacing:-.025em!important}
+        #featured-track .product-card .product-info>p:first-child{letter-spacing:.2em!important}
+        #featured-track .product-card>div:nth-last-child(2){padding-left:8px!important;padding-right:8px!important}
+        #featured-track .product-card>div:last-child{padding-left:8px!important;padding-right:8px!important;justify-content:center}
+        #featured-track .product-card .product-photo:after{inset:55% 0 0!important;background:linear-gradient(0deg,rgba(0,0,0,.42),transparent)!important}
+        #featured-track .product-card .luxon-favorite{top:18px;right:18px}
+        #destacados .featured-arrow{top:43%!important}
+        #destacados>div:last-child{margin-top:16px!important}
+        @media(max-width:640px){
+          #destacados{padding-left:0!important;padding-right:0!important}
+          #destacados>div:first-child{padding:0 20px!important;margin-bottom:24px!important}
+          .luxon-featured-title{font-size:clamp(42px,12vw,64px)!important}
+          #destacados .relative:has(>#featured-track){margin-left:0;margin-right:0;padding:0 16px}
+          #featured-track{gap:7px!important;padding:10px 0 18px!important}
+          #featured-track .product-card{width:78vw!important;flex-basis:78vw!important}
+          #featured-track .product-card .product-photo{height:clamp(280px,92vw,390px)!important}
+          #destacados .featured-arrow{display:none!important}
+        }
+        @media(prefers-reduced-motion:reduce){#featured-track .product-card .product-photo img{transition:none!important}}
+        /* La misma composición inclinada se replica en los carruseles del catálogo */
+        #products-grid .luxon-category-track .product-card .product-photo{height:clamp(250px,28vw,370px)!important;aspect-ratio:auto!important;overflow:hidden!important;border-radius:0!important;clip-path:polygon(0 2%,100% 0,100% 98%,0 100%);transform:skewY(-1deg);border:1px solid rgba(230,207,155,.2)!important;box-shadow:0 14px 34px rgba(0,0,0,.28)}
+        #products-grid .luxon-category-track .product-card:nth-child(4n+1) .product-photo{clip-path:polygon(0 0,100% 5%,100% 96%,0 100%);transform:perspective(900px) rotateY(4deg) skewY(1deg)}
+        #products-grid .luxon-category-track .product-card:nth-child(4n+2) .product-photo{clip-path:polygon(0 4%,100% 0,100% 100%,0 96%);transform:perspective(900px) rotateY(2deg) skewY(-.5deg)}
+        #products-grid .luxon-category-track .product-card:nth-child(4n+3) .product-photo{clip-path:polygon(0 0,100% 3%,100% 97%,0 100%);transform:perspective(900px) rotateY(-2deg) skewY(.5deg)}
+        #products-grid .luxon-category-track .product-card:nth-child(4n) .product-photo{clip-path:polygon(0 5%,100% 0,100% 100%,0 95%);transform:perspective(900px) rotateY(-4deg) skewY(-1deg)}
+        #products-grid .luxon-category-track .product-card .product-photo img{object-fit:cover!important}
+        @media(max-width:640px){#products-grid .luxon-category-track .product-card .product-photo{height:clamp(240px,78vw,330px)!important}}
+
+
     </style>
 </head>
 <body class="antialiased selection:bg-gold-300 selection:text-charcoal flex flex-col min-h-screen">
@@ -395,7 +448,7 @@ footer{background:#050505!important}
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-9">
                 <div class="max-w-2xl">
                     <span class="text-gold-600 font-semibold text-[11px] uppercase tracking-[0.32em] block mb-3">Selección LuXon</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charcoal leading-tight">Piezas destacadas</h2>
+                    <h2 class="luxon-featured-title" aria-label="Productos Destacados"><span>Productos</span><em>Destacados</em></h2>
                     <p class="text-charcoal/60 text-sm mt-3 max-w-xl leading-relaxed">Una selección de nuestros productos favoritos, elegidos para vos.</p>
                 </div>
                 <a href="#catalogo" id="open-catalog-top" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal hover:text-gold-600 transition-colors">Explorar colección completa <i class="fa-solid fa-arrow-right"></i></a>
@@ -736,7 +789,7 @@ footer{background:#050505!important}
                 ],
                 "description": "3 en 1, 5 paletas plasticas",
                 "featured": true,
-                "active": false
+                "active": true
         },
         {
                 "id": "LUX-008",
